@@ -27,6 +27,8 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Font from '@ckeditor/ckeditor5-font/src/font';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -52,7 +54,9 @@ ClassicEditor.builtinPlugins = [
 	Paragraph,
 	PasteFromOffice,
 	Table,
-	TableToolbar
+	TableToolbar,
+	Alignment,
+	Font,
 ];
 
 // Editor configuration.
@@ -70,9 +74,75 @@ ClassicEditor.defaultConfig = {
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
+			'alignment',
+			'fontColor',
+			'fontBackgroundColor',
 			'undo',
 			'redo'
 		]
+	},
+	fontColor: {
+		colors: [
+			{
+				color: '#a31414',
+			},
+			{
+				color: '#C2B173',
+			},
+			{
+				color: '#264570',
+			},
+			{
+				color: '#292D32',
+			},
+			{
+				color: '#343537',
+			},
+			{
+				color: '#4A4A4A',
+			},
+
+			{
+				color: '#9B9B9B',
+			},
+			{
+				color: 'hsl(0, 0%, 100%)',
+				hasBorder: true
+			}
+		].map( ( c, i ) => ( { ...c, label: `c${ i }` } ) )
+	},
+	fontBackgroundColor: {
+		colors: [
+			{
+				color: '#a31414',
+			},
+			{
+				color: '#C2B173',
+			},
+			{
+				color: '#264570',
+			},
+			{
+				color: '#292D32',
+			},
+			{
+				color: '#343537',
+			},
+			{
+				color: '#4A4A4A',
+			},
+
+			{
+				color: '#9B9B9B',
+			},
+			{
+				color: 'hsl(0, 0%, 100%)',
+				hasBorder: true
+			}
+		].map( ( c, i ) => ( { ...c, label: `c${ i }` } ) )
+	},
+	alignment: {
+		options: [ 'left', 'center', 'right' ]
 	},
 	image: {
 		toolbar: [
